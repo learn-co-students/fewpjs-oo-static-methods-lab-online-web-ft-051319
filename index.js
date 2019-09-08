@@ -5,6 +5,8 @@ class Formatter {
 
   static sanitize(string) {
     return string.replace(/[^A-Za-z0-9-'\s]+/g, '');
+    // or
+    // return string.replace( /[^A-Za-z0-9 '-]/g, '' )
   }
 
   static titleize(sentence) {
@@ -14,11 +16,9 @@ class Formatter {
     for (let i = 0; i < words.length; i++) {
       if (i === 0) {
         titleCased.push(this.capitalize(words[i]));
-      }
-      else if (except.includes(words[i])) {
+      } else if (except.includes(words[i])) {
         titleCased.push(words[i]);
-      }
-      else {
+      } else {
         titleCased.push(this.capitalize(words[i]));
       }
     }
